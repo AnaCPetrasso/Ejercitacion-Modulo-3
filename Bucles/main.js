@@ -11,7 +11,7 @@ console.log(obtenerIndice(83,numbers))
 //------------------------------------------------------------ repetir(valor, cantidad)
 //Crear una función repetir que tome como argumento un valor valor y un número entero cantidad, y devuelva una array con valor repetido cantidad de veces.
 const repetir = (valor,cantidad)=>{
-    array =[] //creo un array vacio para ir sumandole elementos
+    let array =[] //creo un array vacio para ir sumandole elementos
     for (let i=0; i < cantidad ; i++){
         array.push(valor)
     }
