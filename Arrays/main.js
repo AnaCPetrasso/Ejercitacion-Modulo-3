@@ -16,7 +16,7 @@ console.log(obtenerMenor(numbers))
 //sumarNumeros([5, 7, 10, 12, 24]) // 58
 let sum = 0
 const sumarNumeros = (numbers) => {
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length-1; i++) {
         sum += numbers[i];
     }
     return sum
@@ -36,8 +36,9 @@ console.log(contiene(8, numbers))
 // invertido, es decir, cada letra está mayúscula si estaba en minúscula, y viceversa.
 
 const invertirCaso = (string)=>{
+    totalDeLetras = string.length()
 
-    for (let i = 0; i < string.length; i++){
+    for (let i = 0; i < string.length-1; i++){
         if (i == /[A-Z]/g){
           
         }
