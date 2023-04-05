@@ -74,7 +74,7 @@ console.log(estanJuntos(['Sam', 'Orco', 'Frodo']))
 // ____________________________________________________separar(perrosYGatos)
 //Crear una función separar que tome como argumento un string con emojis de perros y gatos y devuelva un string con los perros agrupados
 // por un lado y los gatos por otro.
-//uso d para perros (dog) y c para gatos (cat) porque no me toma los emojis como  validos
+//uso d para perros (dog) y c para gatos (cat) porque no me toma los emojis como  validos 
 const separar =  (string)=>{
     let perros = []
     let gatos =[]
@@ -93,3 +93,21 @@ console.log(separar('ddcdcdcddccd'))
 // Para una usuaria, debe mostrar: NOMBRE_USUARIA_1 está conectada
 // Para dos usuarias, debe mostrar: NOMBRE_USUARIA_1 y NOMBRE_USUARIA_2 + están conectadas
 // Para más de dos usuarias, debe mostrar: NOMBRE_USUARIA_1, NOMBRE_USUARIA_2 y X persona(s) más están conectadas
+const obtenerChatStatus = (usuarias)=>{
+    let cantidad = usuarias.length
+    if (cantidad == 1){
+         return usuarias[0] + ' está conectada'
+    }if (cantidad ==2){
+         return usuarias[0]+ ' y'+ usuarias[1] +' están conectadas'
+    }else{
+         return usuarias[0] +' , '+ usuarias[1] + ' y '+ (cantidad-2) +' persona (s) más están conectadas'
+    }
+    return cantidad
+}
+console.log(obtenerChatStatus(['ada','caro','ana','paz']))
+
+// ____________________________________________________ germinar(plantines)
+//Crear una función germinar que tome como argumento un string de plantines con flores y plantines (🌱). El array debe comenzar con una flor.
+// La función debe devolver un string con los plantines convertidos en flores. El plantín se debe convertir en la primera flor que encuentre a su izquierda. 
+//['t','p','g','p','m','p','t','p','m','p']
+//array.splice(start[, deleteCount[, item1[, item2[, ...]]]]) => sintaxis dela funcion splice
