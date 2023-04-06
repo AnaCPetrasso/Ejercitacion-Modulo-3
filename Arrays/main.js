@@ -89,13 +89,13 @@ console.log(estanJuntos(['Sam', 'Orco', 'Frodo']))
 // por un lado y los gatos por otro.
 //uso d para perros (dog) y c para gatos (cat) porque no me toma los emojis como  validos 
 const separar = (string) => {
-    let perros = []
-    let gatos = []
+    let perros = ''
+    let gatos = ''
     for (i = 0; i < string.length; i++) {
         if (string[i] === 'd') {
-            perros.push('d')
+            perros += 'd'
         } else {
-            gatos.push('c')
+            gatos += 'c'
         }
     }
     return perros.concat(gatos)
@@ -111,13 +111,15 @@ const obtenerChatStatus = (usuarias) => {
     if (cantidad == 1) {
         return usuarias[0] + ' está conectada'
     } if (cantidad == 2) {
-        return usuarias[0] + ' y' + usuarias[1] + ' están conectadas'
+        return usuarias[0] + ' y ' + usuarias[1] + ' están conectadas'
     } else {
         return usuarias[0] + ' , ' + usuarias[1] + ' y ' + (cantidad - 2) + ' persona (s) más están conectadas'
     }
-    return cantidad
 }
-console.log(obtenerChatStatus(['ada', 'caro', 'ana', 'paz']))
+console.log(obtenerChatStatus(['Ada']))
+console.log(obtenerChatStatus(['Ada', 'Grace']))
+console.log(obtenerChatStatus(['Ada', 'Grace', 'Marie']))
+console.log(obtenerChatStatus(['Ada', 'Grace', 'Marie', 'Anne']))
 // ____________________________________________________ germinar(plantines)
 //Crear una función germinar que tome como argumento un string de plantines con flores y plantines (🌱). El array debe comenzar con una flor.
 // La función debe devolver un string con los plantines convertidos en flores. El plantín se debe convertir en la primera flor que encuentre a su izquierda.
