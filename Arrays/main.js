@@ -172,3 +172,17 @@ const multiplicar = (multiplicador,numeros) =>{
 }
 console.log(multiplicar(2, [5, 7, 15, 22, 40]))
 console.log(multiplicar(10, [2, 5, 77]) )
+// ____________________________________________________ recortar(cantidadLetras, palabras)
+//Crear una función recortar que tome como argumentos un número cantidadLetras y un array de strings palabras y devuelva un array con las mismas palabras 
+//pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciando, y recortando las demás. Por ejemplo, elefante recortada a 4 letras queda elef.
+const recortar = (cantidadLetras,palabras)=>{
+    let newPalbras =[]
+    for (const palabra of palabras) {
+        newPalbras.push(palabra.slice(0,cantidadLetras))
+    }
+    return newPalbras
+}
+console.log(recortar(4, ['elefante', 'dinosaurio', 'chocolate', 'avion', 'america']))
+console.log(recortar(1, ['algoritmo', 'bug', 'compilador']))
+console.log(recortar(8, ['algoritmo', 'bug', 'compilador']))
+// ____________________________________________________ recortar(cantidadLetras, palabras)
