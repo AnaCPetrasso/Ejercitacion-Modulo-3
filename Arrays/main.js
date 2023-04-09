@@ -123,5 +123,52 @@ console.log(obtenerChatStatus(['Ada', 'Grace', 'Marie', 'Anne']))
 // ____________________________________________________ germinar(plantines)
 //Crear una función germinar que tome como argumento un string de plantines con flores y plantines (🌱). El array debe comenzar con una flor.
 // La función debe devolver un string con los plantines convertidos en flores. El plantín se debe convertir en la primera flor que encuentre a su izquierda.
-//['t','p','g','p','m','p','t','p','m','p']
-//array.splice(start[, deleteCount[, item1[, item2[, ...]]]]) => sintaxis dela funcion splice
+//p = plantines t=plnta1 s=planta2 y=planta3
+//quiero hacer una función que me indique cual el la ultima letra distita de p
+const nearPlant = (string) =>{
+    for(i=0; i<string.length;i++){
+        if (string[i] == 'p'){
+            return string[i-1] 
+        } 
+    }
+}
+console.log(nearPlant('srsp'))
+
+const germinar = (string) =>{
+    let plantas =[]
+    if(string[0]!= 'p'){
+        for(const letra of string){
+            if(letra == 'p'){
+                plantas.push(nearPlant(string))
+            }else{
+                plantas.push(letra)
+            }
+        }
+    }else{
+        return 'el string debe comenzar con una planta no un plantin'
+    }
+    return plantas.join()
+}
+console.log(germinar('tp'))
+console.log(germinar('pty'))
+console.log(germinar('tppssppyypp')) //no se cumple, me cambia todas por la primera p que encuentra
+// ____________________________________________________ comer(plantas)
+//Crear una función comer que tome por parámetro un string plantas que consista en plantas, un conejo y una señal de prohibido.
+// El conejo se come todas las plantas que hay a su derecha, hasta que se encuentra con la señal de prohibido.
+// El programa debe mostrar las plantas sobrevivientes, que son todas las que están a la izquierda del conejo (si hay) y a la derecha de la señal (si hay). 
+//p => planta c=>conejo s=>stop
+const comer = (plantas) =>{
+
+}
+// ____________________________________________________ multiplicar(multiplicador, numeros)
+//Crear una función multiplicar que tome como argumentos un número multiplicador y un array de números numeros, y que devuelva un array 
+//donde cada elemento es el resultado del elemento del primer array (en la misma posición) multiplicado por el número ingresado.
+const multiplicar = (multiplicador,numeros) =>{
+    let newNumeros =[]
+    for (const number of numeros) {
+        newNumeros.push(number*multiplicador)
+    }
+    return newNumeros
+}
+console.log(multiplicar(2, [5, 7, 15, 22, 40]))
+console.log(multiplicar(10, [2, 5, 77]) )
