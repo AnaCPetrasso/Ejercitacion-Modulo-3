@@ -185,4 +185,18 @@ const recortar = (cantidadLetras,palabras)=>{
 console.log(recortar(4, ['elefante', 'dinosaurio', 'chocolate', 'avion', 'america']))
 console.log(recortar(1, ['algoritmo', 'bug', 'compilador']))
 console.log(recortar(8, ['algoritmo', 'bug', 'compilador']))
-// ____________________________________________________ recortar(cantidadLetras, palabras)
+// ____________________________________________________ sonIguales(a, b)
+//Crear una función sonIguales(a, b) que tome como argumentos dos arrays a y b y devuelva true si ambos arrays tienen los mismos valores en la misma posición,
+// o false sino.
+const sonIguales = (a,b)=>{
+    let newA = a.join()
+    let newB = b.join()
+    if(newA == newB){
+        return true
+    }else{
+        return false
+    }
+}
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [10, 25, 6, 33, 48, 105]))
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [11, 25, 6, 33, 48, 105]))
+console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105]))
