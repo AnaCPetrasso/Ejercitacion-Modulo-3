@@ -125,26 +125,26 @@ console.log(obtenerChatStatus(['Ada', 'Grace', 'Marie', 'Anne']))
 // La función debe devolver un string con los plantines convertidos en flores. El plantín se debe convertir en la primera flor que encuentre a su izquierda.
 //p = plantines t=plnta1 s=planta2 y=planta3
 //quiero hacer una función que me indique cual el la ultima letra distita de p
-const nearPlant = (string) =>{
-    for(i=0; i<string.length;i++){
-        if (string[i] == 'p'){
-            return string[i-1] 
-        } 
+const nearPlant = (string) => {
+    for (i = 0; i < string.length; i++) {
+        if (string[i] == 'p') {
+            return string[i - 1]
+        }
     }
 }
 console.log(nearPlant('srsp'))
 
-const germinar = (string) =>{
-    let plantas =[]
-    if(string[0]!= 'p'){
-        for(const letra of string){
-            if(letra == 'p'){
+const germinar = (string) => {
+    let plantas = []
+    if (string[0] != 'p') {
+        for (const letra of string) {
+            if (letra == 'p') {
                 plantas.push(nearPlant(string))
-            }else{
+            } else {
                 plantas.push(letra)
             }
         }
-    }else{
+    } else {
         return 'el string debe comenzar con una planta no un plantin'
     }
     return plantas.join()
@@ -157,28 +157,28 @@ console.log(germinar('tppssppyypp')) //no se cumple, me cambia todas por la prim
 // El conejo se come todas las plantas que hay a su derecha, hasta que se encuentra con la señal de prohibido.
 // El programa debe mostrar las plantas sobrevivientes, que son todas las que están a la izquierda del conejo (si hay) y a la derecha de la señal (si hay). 
 //p => planta c=>conejo s=>stop
-const comer = (plantas) =>{
+const comer = (plantas) => {
 
 }
 // ____________________________________________________ multiplicar(multiplicador, numeros)
 //Crear una función multiplicar que tome como argumentos un número multiplicador y un array de números numeros, y que devuelva un array 
 //donde cada elemento es el resultado del elemento del primer array (en la misma posición) multiplicado por el número ingresado.
-const multiplicar = (multiplicador,numeros) =>{
-    let newNumeros =[]
+const multiplicar = (multiplicador, numeros) => {
+    let newNumeros = []
     for (const number of numeros) {
-        newNumeros.push(number*multiplicador)
+        newNumeros.push(number * multiplicador)
     }
     return newNumeros
 }
 console.log(multiplicar(2, [5, 7, 15, 22, 40]))
-console.log(multiplicar(10, [2, 5, 77]) )
+console.log(multiplicar(10, [2, 5, 77]))
 // ____________________________________________________ recortar(cantidadLetras, palabras)
 //Crear una función recortar que tome como argumentos un número cantidadLetras y un array de strings palabras y devuelva un array con las mismas palabras 
 //pero recortadas. Las palabras se recortan dejando cantidadLetras letras al iniciando, y recortando las demás. Por ejemplo, elefante recortada a 4 letras queda elef.
-const recortar = (cantidadLetras,palabras)=>{
-    let newPalbras =[]
+const recortar = (cantidadLetras, palabras) => {
+    let newPalbras = []
     for (const palabra of palabras) {
-        newPalbras.push(palabra.slice(0,cantidadLetras))
+        newPalbras.push(palabra.slice(0, cantidadLetras))
     }
     return newPalbras
 }
@@ -188,15 +188,45 @@ console.log(recortar(8, ['algoritmo', 'bug', 'compilador']))
 // ____________________________________________________ sonIguales(a, b)
 //Crear una función sonIguales(a, b) que tome como argumentos dos arrays a y b y devuelva true si ambos arrays tienen los mismos valores en la misma posición,
 // o false sino.
-const sonIguales = (a,b)=>{
+const sonIguales = (a, b) => {
     let newA = a.join()
     let newB = b.join()
-    if(newA == newB){
+    if (newA == newB) {
         return true
-    }else{
+    } else {
         return false
     }
 }
 console.log(sonIguales([10, 25, 6, 33, 48, 105], [10, 25, 6, 33, 48, 105]))
 console.log(sonIguales([10, 25, 6, 33, 48, 105], [11, 25, 6, 33, 48, 105]))
 console.log(sonIguales([10, 25, 6, 33, 48, 105], [25, 10, 6, 33, 48, 105]))
+// ____________________________________________________ obtenerResultado(jugadoraA, jugadoraB, puntajesA, puntajesB)
+//Crear una función obtenerResultado que tome como argumentos dos strings jugadoraA y jugadoraB con los nombres de cada jugadora respectivamente, 
+//y dos arrays de numeros puntajesA y puntajesB de la misma longitud. La función debe devolver un string con el nombre de la ganadora o 
+//Empate en caso de que no haya ninguna. Para eso, debe comparar las mismas posiciones de cada array de puntajes, y sumar puntos a la jugadora correspondiente
+// dependiendo de quien tenga el puntaje más alto.
+
+const obtenerResultado = (jugadoraA, jugadoraB, puntajeA, puntajeB) => {
+    let contadorA = 0
+    let contadorB = 0
+    for (let i = 0; i < puntajeA.length && i < puntajeB.length; i++) {
+        if (puntajeA[i] > puntajeB[i]) {
+            contadorA += 1
+        }
+        else {
+            contadorB += 1
+        }
+    }
+    if(contadorA>contadorB){
+        return (`gana ${jugadoraA} `)
+    }if(contadorA == contadorB){
+        return ('empate')
+    }else{
+        return (`gana ${jugadoraB} `)
+    }
+
+    
+}
+console.log(obtenerResultado('Ada', 'Grace', [4, 4, 4], [1, 2, 3]))
+console.log(obtenerResultado('Ada', 'Grace', [3, 5, 5, 7], [4, 1, 2, 9]))
+console.log(obtenerResultado('Ada', 'Grace', [5, 6, 3, 1, 8], [8, 2, 4, 2, 3]))
