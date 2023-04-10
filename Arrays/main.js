@@ -217,16 +217,59 @@ const obtenerResultado = (jugadoraA, jugadoraB, puntajeA, puntajeB) => {
             contadorB += 1
         }
     }
-    if(contadorA>contadorB){
+    if (contadorA > contadorB) {
         return (`gana ${jugadoraA} `)
-    }if(contadorA == contadorB){
+    } if (contadorA == contadorB) {
         return ('empate')
-    }else{
+    } else {
         return (`gana ${jugadoraB} `)
     }
 
-    
+
 }
 console.log(obtenerResultado('Ada', 'Grace', [4, 4, 4], [1, 2, 3]))
 console.log(obtenerResultado('Ada', 'Grace', [3, 5, 5, 7], [4, 1, 2, 9]))
 console.log(obtenerResultado('Ada', 'Grace', [5, 6, 3, 1, 8], [8, 2, 4, 2, 3]))
+// ____________________________________________________ jugarPiedraPapelTijeras(jugadoraA, jugadoraB, jugadasA, jugadasB)
+//Crear una función jugarPiedraPapelTijeras que tome como argumentos dos strings jugadoraA y jugadoraB con los nombres de cada jugadora respectivamente,
+// y dos arrays de strings jugadasA y jugadasB con jugadas de Piedra, Papel o Tijera, de la misma longitud.
+// La función debe devolver un string con el nombre de la ganadora o Empate en caso de que no haya ninguna.
+// Para eso, debe comparar las mismas posiciones de cada array de jugadas, y sumar puntos a la jugadora correspondiente
+// jugadasA[0] vs. jugadasB[0] -> Gana B
+// jugadasA[1] vs. jugadasB[1] -> Gana A
+// jugadasA[2] vs. jugadasB[2] -> Empate
+
+// Resultado final: Empate
+const jugarPiedraPapelTijeras = (jugadoraA, jugadoraB, jugadaA,jugadaB) => {
+    let contador1 = 0
+    let contador2 = 0
+    for (let i = 0; i < jugadaA.length && i <jugadaB.length; i++) {
+        if(jugadaA[i] === jugadaB[i]){
+            contador1 +=1
+            contador2+=1
+        }
+        else if (jugadaA[i] == 'papel' && jugadaB[i] == 'tijera' || jugadaA[i] == 'tijera' && jugadaB[i] == 'piedra' || jugadaA[i] == 'piedra' && jugadaB[i] == 'papel') {
+            contador2 += 1
+        }else if(jugadaA[i] == 'papel' && jugadaB[i] == 'piedra' || jugadaA[i] == 'tijera' && jugadaB[i] == 'papel' || jugadaA[i] == 'piedra' && jugadaB[i] == 'tijera'){
+            contador1 +=1
+        }
+    }
+    if(contador1>contador2){
+        return `gana ${jugadoraA}`
+    }
+    if(contador1<contador2){
+        return `gana ${jugadoraB}`
+    }
+    else{
+        return `empate`
+    }
+}
+console.log(jugarPiedraPapelTijeras('Ada', 'Grace', ['tijera','papel'], ['piedra','papel']))
+console.log(jugarPiedraPapelTijeras('Ada', 'Grace', ['papel'], ['piedra']))
+console.log(jugarPiedraPapelTijeras('Ada', 'Grace', ['papel'], ['papel']))
+console.log(jugarPiedraPapelTijeras(
+    'Ada',
+    'Grace',
+    ['piedra', 'papel', 'papel', 'piedra', 'tijera'],
+    ['papel', 'piedra', 'tijera', 'tijera', 'papel']
+  ) )
